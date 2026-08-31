@@ -15,7 +15,7 @@ on:
       limit:
         description: Maximum Commission items to inspect
         required: true
-        default: '25'
+        default: '60'
 
 permissions:
   contents: read
@@ -64,7 +64,7 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "schedule" ]]; then
             echo "mode=submit" >> "$GITHUB_OUTPUT"
-            echo "limit=25" >> "$GITHUB_OUTPUT"
+            echo "limit=60" >> "$GITHUB_OUTPUT"
           else
             echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
             echo "limit=${{ inputs.limit }}" >> "$GITHUB_OUTPUT"
